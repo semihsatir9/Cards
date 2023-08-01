@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+//import "fmt"
 
 // Variables can be initialized outside of a 
 // function but they CANNOT be given value outside
@@ -30,7 +30,11 @@ func main() {
 
 	//Append is .add of arraylists
 
-	cards := []string{"Ace of Diamonds", newCard()}
+
+	// To understand the deck type, go to the
+	// deck.go file.
+
+	cards := deck{"Ace of Diamonds", newCard()}
 	cards = append(cards, "Six of Spades")
 
 
@@ -43,9 +47,7 @@ func main() {
 	// data is thrown away. You have to assign new values
 	// every time the loop iterates.
 	
-	for i , card := range cards{
-		fmt.Println(i,card) 
-	}
+	cards.print()
 	
 
 }
