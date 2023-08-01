@@ -35,18 +35,22 @@ func main() {
 	// To understand the deck type, go to the
 	// deck.go file.
 
-	var cards deck = newDeck()
+	//var cards deck = newDeck()
 
 
 	// Recieving 2 different returns from a single
 	// function.
 
-	hand, remainingCards := deal(cards,5)
+	// hand, remainingCards := deal(cards,5)
 
-	hand.print()
-	remainingCards.print()
+	// hand.print()
+	// remainingCards.print()
 
+	//cards.saveToFile("This")
 
+	newDeck := readFromFile("This")
+
+	newDeck.print()
 
 
 
@@ -58,6 +62,10 @@ func main() {
 	// Use := because after every iteration, the old
 	// data is thrown away. You have to assign new values
 	// every time the loop iterates.
+
+	// for i, card := range d{
+	// 	 fmt.Println(i,card)
+	// }
 	
 	
 

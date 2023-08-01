@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strings"
+)
 
 // Custom Types
 // In Go, there is no object oriented classes.
@@ -10,7 +14,7 @@ import "fmt"
 // A lot similar to classes on OOP languages.
 
 // Functions on custom types takes a receiver.
-// It's like the insides of the paranthesis of 
+// It's like the insides of the paranthesis of
 // Java functions. The syntax is found below. *1
 // Only use this abbreviation when you are initializing
 // a new method to a type.
@@ -58,5 +62,33 @@ func (d deck) print(){
 func deal(d deck, handsize int) (deck,deck){
 	return d[:handsize],d[handsize:]
 	
+
+}
+
+func (d deck) toString() string{
+	
+	return strings.Join([]string(d),",")
+
+}
+
+func (d deck) saveToFile(filename string) error{
+	return os.WriteFile(filename, []byte(d.toString()), 0666)
+
+}
+
+func readFromFile(filename string) deck{
+	bs, err := os.ReadFile(filename)
+
+	if err != nil {
+		fmt.Println("Error: ",err)
+		os.Exit(1)
+	}
+
+	//string(bs) // The string value of all cards
+	s := strings.Split(string(bs),",") //Getting a string slice to make a deck out of
+
+	return deck(s)
+	
+
 
 }
