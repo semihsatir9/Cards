@@ -1,8 +1,9 @@
 package main
 
+
 //import "fmt"
 
-// Variables can be initialized outside of a 
+// Variables can be initialized outside of a
 // function but they CANNOT be given value outside
 
 func main() {
@@ -34,8 +35,19 @@ func main() {
 	// To understand the deck type, go to the
 	// deck.go file.
 
-	cards := deck{"Ace of Diamonds", newCard()}
-	cards = append(cards, "Six of Spades")
+	var cards deck = newDeck()
+
+
+	// Recieving 2 different returns from a single
+	// function.
+
+	hand, remainingCards := deal(cards,5)
+
+	hand.print()
+	remainingCards.print()
+
+
+
 
 
 	// For loop
@@ -47,11 +59,6 @@ func main() {
 	// data is thrown away. You have to assign new values
 	// every time the loop iterates.
 	
-	cards.print()
 	
 
-}
-
-func  newCard() string{
-	return "Five of Diamonds"
 }
