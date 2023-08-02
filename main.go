@@ -52,6 +52,10 @@ func main() {
 
 	newDeck.print()
 
+	newDeck.shuffle()
+
+	newDeck.print()
+
 
 
 	// For loop

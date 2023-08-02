@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 )
 
 // Custom Types
@@ -90,5 +92,23 @@ func readFromFile(filename string) deck{
 	return deck(s)
 	
 
+
+}
+
+func (d deck) shuffle(){
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
+
+	for i := range d{
+		newPosition := r.Intn(len(d)-1) // Generate a random number.
+		// Getting a perfect shuffle requires the seed to randomly update.
+
+
+		// To get a new seed value we need some syntax
+
+		d[i], d[newPosition] = d[newPosition], d[i]
+
+	}
 
 }
