@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"os"
+	"testing"
+)
 
 //t.Errorf("Expected deck length of 16, but got %v", len(d))
 
@@ -29,6 +32,21 @@ func TestNewDeck(t *testing.T){
 
 func TestSaveToFile(t *testing.T){
 
-	// Take care of cleanup
+	// Take care of cleanup before doing any writing
+	// to hardware.
+
+	os.Remove("_decktesting")
+	deck := newDeck()
+
+	deck.saveToFile("_decktesting")
+
+	loadedDeck := readFromFile("_decktesting")
+
+	if(len(loadedDeck) != 52){
+		t.Errorf(" Expected 52. Got :  %v",len(loadedDeck))
+	}
+
+
+	
 
 }
