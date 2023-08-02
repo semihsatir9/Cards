@@ -45,6 +45,7 @@ func TestSaveToFile(t *testing.T){
 	if(len(loadedDeck) != 52){
 		t.Errorf(" Expected 52. Got :  %v",len(loadedDeck))
 	}
+	os.Remove("_decktesting")
 
 
 	
